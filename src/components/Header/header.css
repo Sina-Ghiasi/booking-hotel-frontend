@@ -1,0 +1,137 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.header-search {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #ebe9e9;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+
+.header-search__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .header-search__item {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.header-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+}
+.counter-icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  display: inline-block;
+}
+
+.location-icon {
+  color: var(--rose-500);
+}
+.date-icon {
+  color: var(--primary-700);
+}
+
+.header-search__input {
+  width: 80%;
+  padding: 0.7rem 0.5rem;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--text-400);
+}
+
+.date-dropdown {
+  width: 80%;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.separator {
+  display: none;
+  width: 1px;
+  height: 30px;
+  background-color: var(--text-400);
+  margin: 0 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .separator {
+    display: inline-block;
+  }
+}
+
+.header-search__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-600);
+  color: #fff;
+  padding: 0.6rem;
+  border-radius: 1rem;
+}
+.guest-options {
+  background-color: #fff;
+  box-shadow: 0 0 10px #efefef;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--text-100);
+  position: absolute;
+  top: 2rem;
+  width: 220px;
+  z-index: 1000;
+}
+
+.guest-options__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.guest-options__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.guest-options__item span,
+.guest-options__item button {
+  display: inline-block;
+}
+.guest-options__item .guest-options__counter-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-600);
+  background-color: var(--text-100);
+}
+.guest-options__item-text {
+  display: inline-block;
+  flex: 1;
+  font-size: 0.9rem;
+}
+.guest-options__counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date-range-option-wrapper {
+  position: absolute;
+  top: 50px;
+  z-index: 1002;
+}
+@media only screen and (min-width: 768px) {
+  .date-range-option-wrapper {
+    left: -5rem;
+  }
+}
