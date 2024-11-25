@@ -1,0 +1,18 @@
+.hotel-layout {
+  margin-top: 1rem;
+  display: flex;
+  height: calc(100vh - 130px);
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.hotel-layout__sidebar {
+  width: 100%;
+  overflow-y: scroll;
+  padding-right: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .hotel-layout__sidebar {
+    width: 40%;
+  }
+}

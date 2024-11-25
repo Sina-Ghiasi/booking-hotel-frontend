@@ -1,0 +1,14 @@
+.loader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.loader__text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-600);
+}
+.loader .loader__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}

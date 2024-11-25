@@ -1,0 +1,35 @@
+.search-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-list .search_item {
+  display: flex;
+  gap: 1rem;
+}
+.search_item .search-item__img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.search_item .search-item__desc p {
+  margin-bottom: 0.3rem;
+}
+.search_item .search-item__name {
+  color: var(--text-400);
+}
+.search_item .search-item__location {
+  font-weight: 500;
+}
+.search_item .search-item__price {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.search_item .search-item__price span {
+  color: var(--text-400);
+  font-weight: 400;
+}
