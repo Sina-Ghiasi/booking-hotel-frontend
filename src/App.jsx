@@ -5,10 +5,11 @@ import Header from "./components/Header/Header";
 import LocationList from "./components/LocationList/LocationList";
 import HotelLayout from "./components/HotelLayout/HotelLayout";
 import Hotels from "./components/Hotels/Hotels";
+import HotelsProvider from "./contexts/HotelsProvider";
 
 function App() {
   return (
-    <>
+    <HotelsProvider>
       <Toaster />
       <Header />
       <Routes>
@@ -18,7 +19,7 @@ function App() {
           <Route path=":id" element={<div>single Hotel</div>} />
         </Route>
       </Routes>
-    </>
+    </HotelsProvider>
   );
 }
 
