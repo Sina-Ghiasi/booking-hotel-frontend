@@ -1,0 +1,43 @@
+.room {
+  margin: 1rem auto;
+}
+
+.room-detail .room-detail__title {
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .room-detail .room-detail__title {
+    font-size: 1.5rem;
+  }
+}
+.room-detail .room-detail__sub-title {
+  font-size: 0.7rem;
+  color: var(--text-500);
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .room-detail .room-detail__sub-title {
+    font-size: 1rem;
+  }
+}
+
+.room-detail .room-detail__desc {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .room-detail .room-detail__desc {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+
+.room-detail .room-detail__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}

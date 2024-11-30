@@ -42,28 +42,26 @@ function Map() {
 
   if (isLoading) return <Loader />;
   return (
-    <div className="map-container">
-      <MapContainer
-        className="map"
-        center={mapCenter}
-        zoom={zoom}
-        scrollWheelZoom={true}
-      >
-        <button onClick={handelGeoPosition} className="get-location">
-          {isLoadingGeoPosition ? "Loading..." : "Use your location ?"}
-        </button>
-        <TileLayer
-          attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <ChangeCenter position={mapCenter} zoom={zoom} />
-        {hotels.map((item) => (
-          <Marker key={item.id} position={[item.latitude, item.longitude]}>
-            <Popup>{item.host_location}</Popup>
-          </Marker>
-        ))}
-      </MapContainer>
-    </div>
+    <MapContainer
+      className="map"
+      center={mapCenter}
+      zoom={zoom}
+      scrollWheelZoom={true}
+    >
+      <button onClick={handelGeoPosition} className="map__get-location">
+        {isLoadingGeoPosition ? "Loading..." : "Use your location ?"}
+      </button>
+      <TileLayer
+        attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <ChangeCenter position={mapCenter} zoom={zoom} />
+      {hotels.map((item) => (
+        <Marker key={item.id} position={[item.latitude, item.longitude]}>
+          <Popup>{item.host_location}</Popup>
+        </Marker>
+      ))}
+    </MapContainer>
   );
 }
 

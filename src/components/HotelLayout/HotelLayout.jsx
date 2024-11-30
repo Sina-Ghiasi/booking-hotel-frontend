@@ -8,7 +8,9 @@ function HotelLayout() {
       <div className="hotel-layout__sidebar">
         <Outlet />
       </div>
-      <Map />
+      <div className="hotel-layout__map-container">
+        <Map />
+      </div>
     </div>
   );
 }
