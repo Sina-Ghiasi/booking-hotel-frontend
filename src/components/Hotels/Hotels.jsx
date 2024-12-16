@@ -16,7 +16,7 @@ function Hotels() {
             key={item.id}
             to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}
           >
-            <div className="search_item">
+            <div className="search-item">
               <img
                 className="search-item__img"
                 src={item.picture_url.url}

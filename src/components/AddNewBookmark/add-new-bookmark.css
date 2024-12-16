@@ -1,0 +1,9 @@
+.add-new-bookmark .add-new-bookmark__title {
+  margin-bottom: 1rem;
+}
+
+.add-new-bookmark .flag {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+}

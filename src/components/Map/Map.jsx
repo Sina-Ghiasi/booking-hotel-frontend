@@ -1,13 +1,18 @@
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import { useHotelsContext } from "../../contexts/HotelsProvider";
-import Loader from "../Loader/Loader";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvent,
+} from "react-leaflet";
 import "./map.css";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import useGeoLocation from "../../hooks/useGeoLocation";
+import { HiBookmark } from "react-icons/hi";
 
-function Map() {
-  const { isLoading, hotels } = useHotelsContext();
+function Map({ markerLocations, currentLocation }) {
   const [mapCenter, setMapCenter] = useState([0, 0]);
   const [zoom, setZoom] = useState(12);
   const [searchParams] = useSearchParams();
@@ -23,12 +28,15 @@ function Map() {
   useEffect(() => {
     if (lat && lng) {
       setMapCenter([lat, lng]);
-      setZoom(12);
+      setZoom(8);
+    } else if (currentLocation) {
+      setMapCenter(currentLocation);
+      setZoom(5);
     } else {
-      setMapCenter(calcHotelsAveragePosition(hotels));
+      setMapCenter(calcHotelsAveragePosition(markerLocations));
       setZoom(5);
     }
-  }, [hotels, lat, lng]);
+  }, [markerLocations, currentLocation, lat, lng]);
 
   useEffect(() => {
     if (geoLocationPosition?.lat && geoLocationPosition?.lng)
@@ -40,28 +48,33 @@ function Map() {
     setZoom(12);
   };
 
-  if (isLoading) return <Loader />;
   return (
-    <MapContainer
-      className="map"
-      center={mapCenter}
-      zoom={zoom}
-      scrollWheelZoom={true}
-    >
+    <div className="map">
+      <Link to="/bookmarks" className="map__bookmarks">
+        <HiBookmark className="map__bookmark-icon" /> Your bookmarks
+      </Link>
       <button onClick={handelGeoPosition} className="map__get-location">
         {isLoadingGeoPosition ? "Loading..." : "Use your location ?"}
       </button>
-      <TileLayer
-        attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <ChangeCenter position={mapCenter} zoom={zoom} />
-      {hotels.map((item) => (
-        <Marker key={item.id} position={[item.latitude, item.longitude]}>
-          <Popup>{item.host_location}</Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+      <MapContainer
+        className="map__container"
+        center={mapCenter}
+        zoom={zoom}
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <ClickDetector />
+        <ChangeCenter position={mapCenter} zoom={zoom} />
+        {markerLocations.map((item) => (
+          <Marker key={item.id} position={[item.latitude, item.longitude]}>
+            <Popup>{item.host_location}</Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   );
 }
 
@@ -71,11 +84,20 @@ function ChangeCenter({ position, zoom }) {
   return null;
 }
 
-function calcHotelsAveragePosition(hotels) {
-  if (!hotels.length) return [0, 0];
+function ClickDetector() {
+  const navigate = useNavigate();
+  useMapEvent({
+    click: (e) =>
+      navigate(`/bookmarks/add?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
+  return null;
+}
 
-  const lat = hotels.map((hotel) => Number(hotel.latitude));
-  const lng = hotels.map((hotel) => Number(hotel.longitude));
+function calcHotelsAveragePosition(markerLocations) {
+  if (!markerLocations.length) return [0, 0];
+
+  const lat = markerLocations.map((item) => Number(item.latitude));
+  const lng = markerLocations.map((item) => Number(item.longitude));
   const avgLat = lat.reduce((a, b) => a + b, 0) / lat.length;
   const avgLng = lng.reduce((a, b) => a + b, 0) / lng.length;
 

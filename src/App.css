@@ -1,0 +1,35 @@
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.btn--primary {
+  background-color: var(--primary-600);
+  color: #fff;
+}
+
+.btn--back {
+  border: 1px solid var(--text-400);
+}
+
+.form .form__control {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.form__control label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.form__control input {
+  border: 1px solid var(--text-400);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.form__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
