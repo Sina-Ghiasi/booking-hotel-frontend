@@ -2,6 +2,8 @@ import { createContext, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
+const SERVER_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
+
 const HotelsContext = createContext();
 function HotelsProvider({ children }) {
   const [searchParams] = useSearchParams();
@@ -12,7 +14,7 @@ function HotelsProvider({ children }) {
   //const date = JSON.parse(searchParams.get("date"));
 
   const { isLoading, data: hotels } = useFetch(
-    "http://localhost:3001/hotels",
+    `${SERVER_BASE_URL}/hotels`,
     `q=${destination || ""}&accommodates_gte=${room || 1}`
   );
   return (

@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import "./location-list.css";
+
+const SERVER_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 function LocationList() {
-  const { data, isLoading } = useFetch("http://localhost:3001/hotels");
+  const { data, isLoading } = useFetch(`${SERVER_BASE_URL}/hotels`);
   if (isLoading) <p>Loading...</p>;
 
   return (

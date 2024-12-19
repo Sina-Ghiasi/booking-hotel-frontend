@@ -3,9 +3,10 @@ import "./single-hotel.css";
 import useFetch from "../../hooks/useFetch";
 import Loader from "../Loader/Loader";
 
+const SERVER_BASE_URL = import.meta.env.VITE_SERVER_BASE_URL;
 function SingleHotel() {
   const { id } = useParams();
-  const { isLoading, data } = useFetch(`http://localhost:3001/hotels/${id}`);
+  const { isLoading, data } = useFetch(`${SERVER_BASE_URL}/hotels/${id}`);
 
   if (isLoading) return <Loader />;
   return (

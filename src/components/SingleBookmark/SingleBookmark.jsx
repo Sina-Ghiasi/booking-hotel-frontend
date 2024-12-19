@@ -10,8 +10,9 @@ function SingleBookmark() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (Number(id) === currentBookmark?.id) return;
     getBookmark(id);
-  }, [id, getBookmark]);
+  }, [id, currentBookmark?.id, getBookmark]);
 
   if (isLoading || !currentBookmark) return <Loader />;
 

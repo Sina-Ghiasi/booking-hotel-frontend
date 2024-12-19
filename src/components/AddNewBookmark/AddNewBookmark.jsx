@@ -7,6 +7,8 @@ import ReactCountryFlag from "react-country-flag";
 import toast from "react-hot-toast";
 import { useBookmarksContext } from "../../contexts/BookmarksProvider";
 
+const REVERSE_GEOCODING_BASE_URL = import.meta.env
+  .VITE_REVERSE_GEOCODING_API_BASE_URL;
 function AddNewBookmark() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
@@ -17,7 +19,7 @@ function AddNewBookmark() {
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
   const { isLoading, data } = useFetch(
-    "https://api-bdc.net/data/reverse-geocode-client",
+    REVERSE_GEOCODING_BASE_URL,
     `latitude=${lat}&longitude=${lng}&localityLanguage=en`
   );
 

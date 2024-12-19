@@ -1295,33 +1295,6 @@
   ],
   "bookmarks": [
     {
-      "latitude": "47.99428716287941",
-      "longitude": "22.379150390625004",
-      "host_location": "Mateszalka, Hungary",
-      "cityName": "Mateszalka",
-      "country": "Hungary",
-      "countryCode": "HU",
-      "id": 9
-    },
-    {
-      "latitude": "52.584277483971114",
-      "longitude": "7.503662109375001",
-      "host_location": "Gersten, Germany",
-      "cityName": "Gersten",
-      "country": "Germany",
-      "countryCode": "DE",
-      "id": 14
-    },
-    {
-      "latitude": "46.98587362966408",
-      "longitude": "-0.087890625",
-      "host_location": "Saint-Leger-de-Montbrun, France",
-      "cityName": "Saint-Leger-de-Montbrun",
-      "country": "France",
-      "countryCode": "FR",
-      "id": 16
-    },
-    {
       "latitude": "52.300081389496114",
       "longitude": "17.885742187500004",
       "host_location": "Slupca, Poland",
@@ -1338,6 +1311,24 @@
       "country": "France",
       "countryCode": "FR",
       "id": 18
+    },
+    {
+      "latitude": "53.309544537853114",
+      "longitude": "9.536132812500002",
+      "host_location": "Tiste, Germany",
+      "cityName": "Tiste",
+      "country": "Germany",
+      "countryCode": "DE",
+      "id": 19
+    },
+    {
+      "latitude": "41.71187978193456",
+      "longitude": "13.051757812500002",
+      "host_location": "Rome, Italy",
+      "cityName": "Rome",
+      "country": "Italy",
+      "countryCode": "IT",
+      "id": 20
     }
   ]
 }
