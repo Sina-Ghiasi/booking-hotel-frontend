@@ -46,7 +46,9 @@
 .date-icon {
   color: var(--primary-700);
 }
-
+.home-icon {
+  color: var(--primary-700);
+}
 .header-search__input {
   width: 80%;
   padding: 0.7rem 0.5rem;

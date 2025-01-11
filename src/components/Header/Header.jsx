@@ -2,13 +2,14 @@ import "./header.css";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { MdLocationPin } from "react-icons/md";
-import { HiCalendar, HiMinus, HiPlus, HiSearch } from "react-icons/hi";
+import { HiCalendar, HiHome, HiMinus, HiPlus, HiSearch } from "react-icons/hi";
 import { useRef, useState } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import {
   createSearchParams,
+  Link,
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
@@ -58,6 +59,9 @@ function Header() {
   return (
     <div className="header">
       <div className="header-search">
+        <Link to="/">
+          <HiHome className="header-icon home-icon" />
+        </Link>
         <div className="header-search__item">
           <MdLocationPin className="header-icon location-icon" />
           <input

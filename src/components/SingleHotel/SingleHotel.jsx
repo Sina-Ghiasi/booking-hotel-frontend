@@ -14,7 +14,7 @@ function SingleHotel() {
       <div className="room-detail">
         <img
           className="room-detail__img"
-          src={data.xl_picture_url}
+          src={data?.picture_url?.url}
           alt={data.name}
         />
         <h2 className="room-detail__title">{data.name}</h2>
